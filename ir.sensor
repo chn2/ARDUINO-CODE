@@ -1,0 +1,18 @@
+
+import RPi.GPIO as q
+import time as t
+q.setwarnings(False)
+q.setmode(q.BCM)
+q.setup(18,q.IN)
+while 1:
+    x=q.input(18)
+    if(x==1):
+        print('object detected')
+        t.sleep(1)
+    else:
+        print('object not detected')
+        t.sleep(1)
+
+        
+        
+    

@@ -1,0 +1,23 @@
+import RPi.GPIO as j
+import time as t
+j.setmode(j.BCM)
+j.setwarnings(False)
+j.setup(18,j.OUT)
+j.setup(25,j.IN)
+while True:
+    j.output(18,0)
+    t.sleep(1)
+    j.output(18,1)
+    t.sleep(0.001)
+    j.output(18,0)
+    t.sleep(1)
+    while(j.input(25)==0):
+        starttime=t.time()
+        
+    while(j.input(25)==1):
+        stoptime=t.time()
+        print("a")
+    totaltime = stoptime-starttime
+    distance = (totaltime*34300)/2
+    print(distance)
+    t.sleep(.5)
